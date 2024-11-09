@@ -24,13 +24,9 @@
             
 
             <!-- Learn More Button with opposite color scheme -->
-            <NuxtLink to="/learn-more" class="bg-white border border-green-500 hover:bg-gray-100 text-green-500 font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out flex items-center">
+            <button @click='goToWhatsInside' id='/whatsinside' class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out ">
                 Learn More
-                <!-- Arrow Icon -->
-                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
-                </svg>
-            </NuxtLink>
+            </button>
             </div>
             <br>
            <!-- Logo Grid Section -->
@@ -56,13 +52,15 @@
         
 
         <!-- Video Section -->
-        <div class="lg:w-1/2 mt-8 lg:mt-0 relative overflow-hidden rounded-lg shadow-lg border border-gray-700 mx-2 md:mx-4">
-            <video class="w-full h-full object-cover" autoplay loop muted>
+        <div class="w-full lg:w-1/2 mx-auto mt-8 lg:mt-0 relative overflow-hidden rounded-lg shadow-lg border border-gray-700">
+            <div class="relative pb-[56.25%] w-full">
+              <video class="absolute top-0 left-0 w-full h-full object-cover" autoplay loop muted>
                 <source src="/static/videos/product_demo_version2.5.mp4" type="video/mp4">
                 Your browser does not support the video tag.
-            </video>
-            <!-- Overlay for transparency -->
-            <div class="absolute inset-0"></div>
+              </video>
+              <!-- Overlay for transparency -->
+              <div class="absolute inset-0 bg-black opacity-20"></div>
+            </div>
         </div>
     </section>
 
@@ -150,7 +148,7 @@
 
     <!-- Technical Specifications section -->
     <section class="bg-gray-900 text-white py-16">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div id="whatsinside" class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
                 <!-- Text and Specifications List -->
                 <div>
@@ -202,26 +200,26 @@
 
     
 
-    <section  class="bg-gray-900 text-white py-16">
-        <div id="demo"class="max-w-7xl mx-auto px-6 lg:px-8">
+    <section class="bg-gray-900 text-white">
+        <div id="demo" class="w-full px-0 lg:px-0"> <!-- Ensure no padding here -->
             <h2 class="text-xl md:text-3xl font-bold text-center mb-8">Watch Our Demo</h2>
             <p class="text-md md:text-xl text-center mb-8">See ClickDraw in action and discover how it can simplify your drawing process.</p>
             
-            <div class="flex justify-center">
+            <!-- Full width container for the video -->
+            <div class="flex justify-center w-full">
                 <div class="relative w-full" style="padding-top: 56.25%;"> <!-- 16:9 Aspect Ratio -->
                     <iframe 
-                    src="https://www.youtube.com/embed/VIDEO_ID" 
-                    title="YouTube video player" 
-                    class="absolute top-0 left-0 w-full h-full rounded-lg shadow-md" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
+                        src="https://www.youtube.com/embed/VIDEO_ID" 
+                        title="YouTube video player" 
+                        class="absolute top-0 left-0 w-full h-full shadow-md" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
                     </iframe>
                 </div>
             </div>
         </div>
     </section>
-
 
 
     <!-- FAQ Section -->
@@ -293,7 +291,7 @@
         <!-- Pricing Cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Free Trial Plan -->
-        <div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center transform hover:scale-110 transition duration-300 ease-in-out">
             <h3 class="text-2xl font-semibold mb-6">Freemium</h3>
             <div class="text-5xl font-bold mb-4 flex justify-center items-center">
             <span class="text-3xl mr-1">₹</span> 0 <span class="text-xl mr-1"> &nbsp / year</span>
@@ -322,13 +320,13 @@
                 Access to customer support
             </li>
             </ul>
-            <NuxtLink to="/signup" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out">
+            <NuxtLink to="/contact" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out">
             Start Free Trial
             </NuxtLink>
         </div>
 
         <!-- Starter Pack Plan -->
-        <div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center transform hover:scale-110 transition duration-300 ease-in-out">
             <h3 class="text-2xl font-semibold mb-6">Basic</h3>
             <div class="text-5xl font-bold mb-4 flex justify-center items-center">
             <span class="text-3xl mr-1">₹</span>50000 <span class="text-xl mr-1">&nbsp / year</span>
@@ -357,13 +355,13 @@
                 Priority Support
             </li>
             </ul>
-            <NuxtLink to="/signup" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out">
-            Get Started
+            <NuxtLink to="/contact" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out">
+            Start Basic Plan
             </NuxtLink>
         </div>
 
         <!-- Premium Plan -->
-        <div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center transform hover:scale-110 transition duration-300 ease-in-out">
             <h3 class="text-2xl font-semibold mb-6">Premium</h3>
             <div class="text-5xl font-bold mb-4 flex justify-center items-center">
             <span class="text-3xl mr-1">₹</span>10 <span class="text-xl mr-1"> &nbsp lakhs / year</span>
@@ -392,8 +390,8 @@
                 24/7 VIP Support
             </li>
             </ul>
-            <NuxtLink to="/signup" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out">
-            Get Premium
+            <NuxtLink to="/contact" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out">
+            Start Premium Plan
             </NuxtLink>
         </div>
         </div>
@@ -564,6 +562,14 @@ export default {
         console.warn("Section with id 'demo' not found");
       }
     },
+    goToWhatsInside() {
+        const demoSection = document.getElementById('whatsinside'); // Get the section with id 'demo'
+        if (demoSection) {
+          demoSection.scrollIntoView({ behavior: 'smooth' }); // Scroll to the section smoothly
+        } else {
+          console.warn("Section with id 'WhatsInside' not found");
+        }
+      },
   },
   mounted() {
     // Auto-slide testimonials every 5 seconds
