@@ -52,15 +52,13 @@
         
 
         <!-- Video Section -->
-        <div class="w-full lg:w-1/2 mx-auto mt-8 lg:mt-0 relative overflow-hidden rounded-lg shadow-lg border border-gray-700">
-            <div class="relative pb-[56.25%] w-full">
-              <video class="absolute top-0 left-0 w-full h-full object-cover" autoplay loop muted>
+        <div class="w-full lg:w-1/2 mt-8 lg:mt-0 relative overflow-hidden rounded-lg shadow-lg border border-gray-700 mx-2 md:mx-4">
+            <video class="w-full h-full object-cover" autoplay loop muted>
                 <source src="/static/videos/product_demo_version2.5.mp4" type="video/mp4">
                 Your browser does not support the video tag.
-              </video>
-              <!-- Overlay for transparency -->
-              <div class="absolute inset-0 bg-black opacity-20"></div>
-            </div>
+            </video>
+            <!-- Overlay for transparency -->
+            <div class="absolute inset-0"></div>
         </div>
     </section>
 
@@ -488,10 +486,10 @@
                         </div>
 
                         <!-- Flex container for Email and Phone -->
-                        <div class="flex flex-col md:flex-row justify-between gap-8">
+                        <div class="flex flex-col md:flex-row justify-between gap-1">
                             <!-- Info Box for Email -->
                             <div class="info-box p-6 bg-gray-800 shadow-lg rounded-lg flex items-start w-full">
-                                <i class="fas fa-envelope text-green-500 text-3xl mr-4"></i>
+                                <i class="fas fa-envelope text-green-500 text-3xl mr-1"></i>
                                 <div>
                                 <h3 class="text-lg font-semibold">Email Us</h3>
                                 <p>vijay@futaucon.com</p>
@@ -500,7 +498,7 @@
 
                             <!-- Info Box for Phone -->
                             <div class="info-box p-6 bg-gray-800 shadow-lg rounded-lg flex items-start w-full">
-                                <i class="fas fa-phone-alt text-green-500 text-3xl mr-4"></i>
+                                <i class="fas fa-phone-alt text-green-500 text-3xl mr-2"></i>
                                 <div>
                                 <h3 class="text-lg font-semibold">Call Us</h3>
                                 <p>+91 90803 27984</p>
