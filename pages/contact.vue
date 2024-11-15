@@ -2,16 +2,37 @@
   <div class="bg-gray-900 min-h-screen flex flex-col md:flex-row text-white">
     <!-- Left Side: Contact Details -->
     <div class="md:w-1/2 p-6 flex flex-col justify-center items-start">
-      <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
-      <p class="mb-2">Phone: +91 90803 27984</p>
-      <p class="mb-2">Email: vijay@futaucon.com</p>
-      <p class="mb-2">Address: 1st floor, E Block, IITM Research Park<br> Tharamani, Chennai-600113</p>
-      <div class="mt-6">
-        <h3 class="text-xl font-semibold mb-2">Follow Us</h3>
-        <div class="flex space-x-4">
-          <a href="#" class="text-blue-400 hover:text-blue-600">Facebook</a>
-          <a href="#" class="text-blue-400 hover:text-blue-600">Twitter</a>
-          <a href="#" class="text-blue-400 hover:text-blue-600">LinkedIn</a>
+      <div class="lg:w-4/5 px-5 lg:px-10">
+        <div class="space-y-8">
+            <!-- Info Box for Address -->
+            <div class="info-box p-6 bg-gray-800 shadow-lg rounded-lg flex items-start">
+            <i class="fas fa-map-marker-alt text-green-500 text-3xl mr-4"></i>
+                <div>
+                    <h3 class="text-lg font-semibold">Visit Us!</h3>
+                    <p>1st floor, E Block, IITM Research Park<br> Tharamani, Chennai-600113</p>
+                </div>
+            </div>
+
+            <!-- Flex container for Email and Phone -->
+            <div class="flex flex-col md:flex-row justify-between gap-1">
+                <!-- Info Box for Email -->
+                <div class="info-box p-6 bg-gray-800 shadow-lg rounded-lg flex items-start w-full">
+                    <i class="fas fa-envelope text-green-500 text-3xl mr-1"></i>
+                    <div>
+                    <h3 class="text-lg font-semibold">Email Us</h3>
+                    <p>vijay@futaucon.com</p>
+                    </div>
+                </div>
+
+                <!-- Info Box for Phone -->
+                <div class="info-box p-6 bg-gray-800 shadow-lg rounded-lg flex items-start w-full">
+                    <i class="fas fa-phone-alt text-green-500 text-3xl mr-1"></i>
+                    <div>
+                    <h3 class="text-lg font-semibold">Call Us</h3>
+                    <p>+91 90803 27984</p>
+                    </div>
+                </div>
+            </div>
         </div>
       </div>
     </div>

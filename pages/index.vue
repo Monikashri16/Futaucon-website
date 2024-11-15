@@ -289,7 +289,7 @@
         <!-- Pricing Cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Free Trial Plan -->
-        <div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center transform hover:scale-110 transition duration-300 ease-in-out">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center border-2 border-transparent hover:border-green-600 hover:shadow-2xl transform hover:scale-110 transition duration-300 ease-in-out">
             <h3 class="text-2xl font-semibold mb-6">Freemium</h3>
             <div class="text-5xl font-bold mb-4 flex justify-center items-center">
             <span class="text-3xl mr-1">₹</span> 0 <span class="text-xl mr-1"> &nbsp / year</span>
@@ -324,10 +324,10 @@
         </div>
 
         <!-- Starter Pack Plan -->
-        <div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center transform hover:scale-110 transition duration-300 ease-in-out">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center border-2 border-transparent hover:border-green-600 hover:shadow-2xl transform hover:scale-110 transition duration-300 ease-in-out">
             <h3 class="text-2xl font-semibold mb-6">Basic</h3>
             <div class="text-5xl font-bold mb-4 flex justify-center items-center">
-            <span class="text-3xl mr-1">₹</span>50000 <span class="text-xl mr-1">&nbsp / year</span>
+            <span class="text-3xl mr-1">₹</span>50,000 <span class="text-xl mr-1">&nbsp / year</span>
             </div>
             <p class="text-gray-300 mb-8">
             Access more features and increase productivity.
@@ -359,7 +359,7 @@
         </div>
 
         <!-- Premium Plan -->
-        <div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center transform hover:scale-110 transition duration-300 ease-in-out">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center border-2 border-transparent hover:border-green-600 hover:shadow-2xl transform hover:scale-110 transition duration-300 ease-in-out">
             <h3 class="text-2xl font-semibold mb-6">Premium</h3>
             <div class="text-5xl font-bold mb-4 flex justify-center items-center">
             <span class="text-3xl mr-1">₹</span>10 <span class="text-xl mr-1"> &nbsp lakhs / year</span>
@@ -408,23 +408,23 @@
             </div>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 ">
                 <!-- Client 1 -->
-                <div class="flex items-center justify-center bg-white p-4 rounded-lg">
+                <div class="flex items-center justify-center bg-white p-4 rounded-lg border-2 border-transparent hover:border-green-600 hover:shadow-2xl transform hover:scale-110 transition duration-300 ease-in-out">
                     <a href="https://www.modulushousing.com/" target="_blank" rel="noopener noreferrer">
                         <img src="/static/images/customerlogo/modulus housing.webp" alt="Client 1" class="h-12 md:h-16 mx-auto" />
                     </a>
                 </div>
                 <!-- Client 2 -->
-                <div class="flex items-center justify-center bg-white p-4 rounded-lg">
+                <div class="flex items-center justify-center bg-white p-4 rounded-lg border-2 border-transparent hover:border-green-600 hover:shadow-2xl transform hover:scale-110 transition duration-300 ease-in-out">
                     <a href="https://www.linkedin.com/company/cbeev?originalSubdomain=in" target="_blank" rel="noopener noreferrer">
                         <img src="/static/images/customerlogo/cbeev.png" alt="Client 1" class="h-12 md:h-16 mx-auto" />
                     </a>
                 </div>
                 <!-- Client 3 -->
-                <div class="flex items-center justify-center bg-white p-4 rounded-lg">
+                <div class="flex items-center justify-center bg-white p-4 rounded-lg border-2 border-transparent hover:border-green-600 hover:shadow-2xl transform hover:scale-110 transition duration-300 ease-in-out">
                     <img src="/static/images/favicon.png" alt="Client 3" class="h-12 md:h-16 mx-auto" />
                 </div>
                 <!-- Client 3 -->
-                <div class="flex items-center justify-center bg-white p-4 rounded-lg">
+                <div class="flex items-center justify-center bg-white p-4 rounded-lg border-2 border-transparent hover:border-green-600 hover:shadow-2xl transform hover:scale-110 transition duration-300 ease-in-out">
                     <img src="/static/images/favicon.png" alt="Client 3" class="h-12 md:h-16 mx-auto" />
                 </div>
             <!-- Add more client logos as needed -->
@@ -436,24 +436,34 @@
     <section class="bg-gray-900 text-white py-16">
         <div class="max-w-3xl mx-auto px-6 lg:px-8">
             <h2 class="text-xl md:text-3xl font-bold text-center mb-8">What Our Clients Say</h2>
-            <div class="bg-gray-800 rounded-lg shadow-md p-8">
-            <div class="flex justify-center mb-4">
-                <svg class="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M10 3a7 7 0 100 14 7 7 0 000-14zm0 12a5 5 0 110-10 5 5 0 010 10z" />
-                </svg>
-            </div>
-            <p class="text-center italic">"{{ testimonials[currentTestimonial].quote }}"</p>
-            <div class="mt-4 text-center">
-                <p class="font-bold">{{ testimonials[currentTestimonial].name }}</p>
-                <p class="text-gray-400">{{ testimonials[currentTestimonial].company }}</p>
-            </div>
-            <div class="flex justify-between mt-6">
-                <button @click="prevTestimonial" class="bg-gray-700 p-2 rounded hover:bg-gray-600">Previous</button>
-                <button @click="nextTestimonial" class="bg-gray-700 p-2 rounded hover:bg-gray-600">Next</button>
-            </div>
+            <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden relative h-60">
+                <div class="flex transition-transform duration-500" :style="{ transform: `translateX(-${currentTestimonial * 100}%)` }">
+                    <div
+                        v-for="(testimonial, index) in testimonials"
+                        :key="index"
+                        class="flex-shrink-0 w-full flex items-center justify-center"
+                    >
+                        <div class="text-center">
+                            <svg class="w-8 h-8 text-green-500 mx-auto mb-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 3a7 7 0 100 14 7 7 0 000-14zm0 12a5 5 0 110-10 5 5 0 010 10z" />
+                            </svg>
+                            <p class="italic">"{{ testimonial.quote }}"</p>
+                            <div class="mt-4">
+                                <p class="font-bold">{{ testimonial.name }}</p>
+                                <p class="text-gray-400">{{ testimonial.company }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-between mt-6">
+                    <button @click="prevTestimonial" class="bg-gray-700 p-2 absolute top--2 left-4 rounded hover:bg-gray-600">Previous</button>
+                    <button @click="nextTestimonial" class="bg-gray-700 p-2 absolute top--2 right-4 rounded hover:bg-gray-600">Next</button>
+                </div>
             </div>
         </div>
     </section>
+    
+    
 
     <!-- Contact us section -->
     <section id="contact" class="bg-teal-950 text-white py-16">
@@ -517,61 +527,51 @@
 
 
 <script>
-export default {
-  name: "Index",
-  data() {
-    return {
-      activeFaq: 1, // Default open FAQ
-      currentTestimonial: 0, // Index for the current testimonial
-      testimonials: [
-        {
-          quote: "ClickDraw has transformed our drawing process!",
-          name: "Arun",
-          company: "Yali Mobility",
+    export default {
+        name: "Index",
+        data() {
+          return {
+            currentTestimonial: 0, // Index for the current testimonial
+            fadeOut: false, // Controls fade-out animation
+            testimonials: [
+              {
+                quote: "ClickDraw has transformed our drawing process!",
+                name: "Arun",
+                company: "Yali Mobility",
+              },
+              {
+                quote: "A game-changer for our engineering team!",
+                name: "Sriram",
+                company: "Modulus Housing",
+              },
+              {
+                quote: "Fast, efficient, and reliable. Highly recommend!",
+                name: "Kishore",
+                company: "Caterpillar",
+              },
+            ],
+          };
         },
-        {
-          quote: "A game-changer for our engineering team!",
-          name: "Sriram",
-          company: "Modulus Housing",
+        methods: {
+          nextTestimonial() {
+            this.fadeOut = true; // Trigger fade-out
+            setTimeout(() => {
+              this.currentTestimonial = (this.currentTestimonial + 1) % this.testimonials.length;
+              this.fadeOut = false; // Trigger fade-in after testimonial changes
+            }, 500); // Match fade-out animation duration
+          },
+          prevTestimonial() {
+            this.fadeOut = true; // Trigger fade-out
+            setTimeout(() => {
+              this.currentTestimonial =
+                (this.currentTestimonial - 1 + this.testimonials.length) % this.testimonials.length;
+              this.fadeOut = false; // Trigger fade-in after testimonial changes
+            }, 500); // Match fade-out animation duration
+          },
         },
-        {
-          quote: "Fast, efficient, and reliable. Highly recommend!",
-          name: "kishore",
-          company: "Caterpillar",
+        mounted() {
+          // Auto-slide testimonials every 5 seconds
+          setInterval(this.nextTestimonial, 5000);
         },
-      ],
-    };
-  },
-  methods: {
-    toggleFaq(id) {
-      this.activeFaq = this.activeFaq === id ? null : id;
-    },
-    nextTestimonial() {
-      this.currentTestimonial = (this.currentTestimonial + 1) % this.testimonials.length;
-    },
-    prevTestimonial() {
-      this.currentTestimonial = (this.currentTestimonial - 1 + this.testimonials.length) % this.testimonials.length;
-    },
-    goToDemo() {
-      const demoSection = document.getElementById('demo'); // Get the section with id 'demo'
-      if (demoSection) {
-        demoSection.scrollIntoView({ behavior: 'smooth' }); // Scroll to the section smoothly
-      } else {
-        console.warn("Section with id 'demo' not found");
-      }
-    },
-    goToWhatsInside() {
-        const demoSection = document.getElementById('whatsinside'); // Get the section with id 'demo'
-        if (demoSection) {
-          demoSection.scrollIntoView({ behavior: 'smooth' }); // Scroll to the section smoothly
-        } else {
-          console.warn("Section with id 'WhatsInside' not found");
-        }
-      },
-  },
-  mounted() {
-    // Auto-slide testimonials every 5 seconds
-    setInterval(this.nextTestimonial, 5000);
-  },
-};
+      };
 </script>
