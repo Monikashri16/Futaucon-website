@@ -205,7 +205,7 @@
             
             <!-- Full width container for the video -->
             <div class="flex justify-center w-full">
-                <div class="relative w-full" style="padding-top: 56.25%;"> <!-- 16:9 Aspect Ratio -->
+                <div class="relative w-full" style="padding-top: 45%;"> <!-- 16:9 Aspect Ratio -->
                     <iframe 
                         src="https://www.youtube.com/embed/VIDEO_ID" 
                         title="YouTube video player" 
@@ -487,7 +487,7 @@
                 <div class="lg:w-1/2 px-5 lg:px-10">
                     <div class="space-y-8">
                         <!-- Info Box for Address -->
-                        <div class="info-box p-6 bg-gray-800 shadow-lg rounded-lg flex items-start">
+                        <div class="info-box p-6 bg-gray-800 shadow-lg rounded-lg flex items-start border-2 border-transparent hover:border-green-600 hover:shadow-2xl transform hover:scale-110 transition duration-300 ease-in-out">
                         <i class="fas fa-map-marker-alt text-green-500 text-3xl mr-4"></i>
                             <div>
                                 <h3 class="text-lg font-semibold">Visit Us!</h3>
@@ -498,7 +498,7 @@
                         <!-- Flex container for Email and Phone -->
                         <div class="flex flex-col md:flex-row justify-between gap-1">
                             <!-- Info Box for Email -->
-                            <div class="info-box p-6 bg-gray-800 shadow-lg rounded-lg flex items-start w-full">
+                            <div class="info-box p-6 bg-gray-800 shadow-lg rounded-lg flex items-start w-full border-2 border-transparent hover:border-green-600 hover:shadow-2xl transform hover:scale-110 transition duration-300 ease-in-out">
                                 <i class="fas fa-envelope text-green-500 text-3xl mr-1"></i>
                                 <div>
                                 <h3 class="text-lg font-semibold">Email Us</h3>
@@ -507,7 +507,7 @@
                             </div>
 
                             <!-- Info Box for Phone -->
-                            <div class="info-box p-6 bg-gray-800 shadow-lg rounded-lg flex items-start w-full">
+                            <div class="info-box p-6 bg-gray-800 shadow-lg rounded-lg flex items-start w-full border-2 border-transparent hover:border-green-600 hover:shadow-2xl transform hover:scale-110 transition duration-300 ease-in-out">
                                 <i class="fas fa-phone-alt text-green-500 text-3xl mr-2"></i>
                                 <div>
                                 <h3 class="text-lg font-semibold">Call Us</h3>
@@ -533,6 +533,8 @@
           return {
             currentTestimonial: 0, // Index for the current testimonial
             fadeOut: false, // Controls fade-out animation
+            activeFaq: 1, // Default open FAQ
+            tabBarName: "Home", // Default tab name
             testimonials: [
               {
                 quote: "ClickDraw has transformed our drawing process!",
@@ -552,6 +554,12 @@
             ],
           };
         },
+        watch: {
+            // Watch for changes in tabBarName and update the browser's tab title
+            tabBarName(newVal) {
+              document.title = `${newVal} | Futaucon`; // Update browser tab title dynamically
+            },
+          },
         methods: {
           nextTestimonial() {
             this.fadeOut = true; // Trigger fade-out
@@ -560,18 +568,36 @@
               this.fadeOut = false; // Trigger fade-in after testimonial changes
             }, 500); // Match fade-out animation duration
           },
+          updateTabName(name) {
+            this.tabBarName = name;
+          },
+          toggleFaq(id) {
+            this.activeFaq = this.activeFaq === id ? null : id; // Toggle FAQ
+          },
           prevTestimonial() {
-            this.fadeOut = true; // Trigger fade-out
-            setTimeout(() => {
-              this.currentTestimonial =
-                (this.currentTestimonial - 1 + this.testimonials.length) % this.testimonials.length;
-              this.fadeOut = false; // Trigger fade-in after testimonial changes
-            }, 500); // Match fade-out animation duration
+      this.currentTestimonial = (this.currentTestimonial - 1 + this.testimonials.length) % this.testimonials.length;
+    },
+    goToDemo() {
+      const demoSection = document.getElementById('demo'); // Get the section with id 'demo'
+      if (demoSection) {
+        demoSection.scrollIntoView({ behavior: 'smooth' }); // Scroll to the section smoothly
+      } else {
+        console.warn("Section with id 'demo' not found");
+      }
+    },
+    goToWhatsInside() {
+        const demoSection = document.getElementById('whatsinside'); // Get the section with id 'demo'
+        if (demoSection) {
+          demoSection.scrollIntoView({ behavior: 'smooth' }); // Scroll to the section smoothly
+        } else {
+          console.warn("Section with id 'WhatsInside' not found");
+        }
           },
         },
         mounted() {
           // Auto-slide testimonials every 5 seconds
           setInterval(this.nextTestimonial, 5000);
+          document.title = `${this.tabBarName} | Futaucon`;
         },
       };
 </script>
